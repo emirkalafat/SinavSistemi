@@ -28,8 +28,8 @@ public abstract class Kullanıcı implements Giris {
     }
 
     @Override
-    public boolean GirisIslemi(String sifre, String kullanıcıAdı) {
-        return sifre.equals(this.getSifre()) && kullanıcıAdı.equals(this.tamAd());
+    public boolean GirisIslemi(String girdi, String kullanıcıAdı) {
+        return girdi.equals(this.getSifre()) && kullanıcıAdı.equals(this.tamAd());
     }
 
     @Override

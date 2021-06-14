@@ -12,28 +12,30 @@ import javax.swing.JFrame;
  * @author emirk
  */
 public class Frame extends JFrame {
+
     /**
      * Creates new form Acilis
      */
     Bolum EEM_Bolumu = new Bolum("Elektrik-Elektronik M.");
-    Ogretmen o1 = new Ogretmen("Hasan", "Ağaç", "şifre123",EEM_Bolumu);
-    Ogretmen o2 = new Ogretmen("Mustafa", "Mert", "şifre321",EEM_Bolumu);
-    Ogretmen o3 = new Ogretmen("Ayşe", "Mutlu", "mutlu",EEM_Bolumu);
-    Ogretmen o4 = new Ogretmen("Selin", "Bitki", "bitki123",EEM_Bolumu);
+    Ogretmen o1 = new Ogretmen("Hasan", "Ağaç", "şifre123", EEM_Bolumu);
+    Ogretmen o2 = new Ogretmen("Mustafa", "Mert", "şifre321", EEM_Bolumu);
+    Ogretmen o3 = new Ogretmen("Ayşe", "Mutlu", "mutlu", EEM_Bolumu);
+    Ogretmen o4 = new Ogretmen("Selin", "Bitki", "bitki123", EEM_Bolumu);
     Ogrenci g1 = new Ogrenci("Emir", "Kalafat", "123", EEM_Bolumu);
     Ogrenci g2 = new Ogrenci("Ahmet", "Papatya", "123", EEM_Bolumu);
     Ogrenci g3 = new Ogrenci("Merve", "Şelale", "123", EEM_Bolumu);
     Ogrenci g4 = new Ogrenci("Şeyma", "Şahin", "123", EEM_Bolumu);
-    Ders mat1 = new Ders("Matematik-1", 10, o1,EEM_Bolumu);
-    Ders fizik1 = new Ders("Fizik-1", 10, o2,EEM_Bolumu);
-    Ders fizik2 = new Ders("Fizik-2", 10, o2,EEM_Bolumu);
-    Ders bp1 = new Ders("Bilgisayar Programlama", 10, o3,EEM_Bolumu);
-    Ders ing = new Ders("İngilizce", 10, o4,EEM_Bolumu);
-    Sınav matS1= new Sınav(mat1);
-    Sınav fizik1S1= new Sınav(fizik1);
-    Sınav fizik2S1= new Sınav(fizik2);
-    Sınav bpS1= new Sınav(bp1);
-    Sınav ingS1= new Sınav(ing);
+    Ders mat1 = new Ders("Matematik-1", 10, o1, EEM_Bolumu);
+    Ders fizik1 = new Ders("Fizik-1", 10, o2, EEM_Bolumu);
+    Ders fizik2 = new Ders("Fizik-2", 10, o2, EEM_Bolumu);
+    Ders bp1 = new Ders("Bilgisayar Programlama", 10, o3, EEM_Bolumu);
+    Ders ing = new Ders("İngilizce", 10, o4, EEM_Bolumu);
+    Sınav matS1 = new Sınav(mat1);
+    Sınav fizik1S1 = new Sınav(fizik1);
+    Sınav fizik2S1 = new Sınav(fizik2);
+    Sınav bp1S1 = new Sınav(bp1);
+    Sınav ingS1 = new Sınav(ing);
+
     public boolean Giris(Kullanıcı kullanıcı) {
         return kullanıcı.GirisIslemi(jTextFieldSifre.getText(), kullanıcı.tamAd());
     }
@@ -41,6 +43,7 @@ public class Frame extends JFrame {
     public void sınavTarihi(Sınav sınav) {
         jLabelIslem.setText(EEM_Bolumu.sınavTarihiAyarla(sınav, jComboBoxGun.getSelectedIndex(), jComboBoxSaat.getSelectedIndex(), jComboBoxGun, jComboBoxSaat));
     }
+
     public Frame() {
         this.initComponents();
     }
@@ -404,7 +407,7 @@ public class Frame extends JFrame {
         this.setVisible(false);
         jFrame1.pack();
         jFrame1.setVisible(true);
-        
+
     }//GEN-LAST:event_jButtonOgretmenActionPerformed
 
     private void jButtonOgrenciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOgrenciActionPerformed
@@ -412,36 +415,36 @@ public class Frame extends JFrame {
         this.setVisible(false);
         jFrame2.pack();
         jFrame2.setVisible(true);
-        
+
     }//GEN-LAST:event_jButtonOgrenciActionPerformed
 
     private void jComboBoxTarihItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTarihItemStateChanged
         // TODO add your handling code here:
         switch (jComboBoxTarih.getSelectedIndex()) {
             case 0:
-            jComboBoxGun.setSelectedIndex(0);
-            break;
+                jComboBoxGun.setSelectedIndex(0);
+                break;
             case 1:
-            jComboBoxGun.setSelectedIndex(1);
-            break;
+                jComboBoxGun.setSelectedIndex(1);
+                break;
             case 2:
-            jComboBoxGun.setSelectedIndex(2);
-            break;
+                jComboBoxGun.setSelectedIndex(2);
+                break;
             case 3:
-            jComboBoxGun.setSelectedIndex(3);
-            break;
+                jComboBoxGun.setSelectedIndex(3);
+                break;
             case 4:
-            jComboBoxGun.setSelectedIndex(4);
-            break;
+                jComboBoxGun.setSelectedIndex(4);
+                break;
             case 5:
-            jComboBoxGun.setSelectedIndex(5);
-            break;
+                jComboBoxGun.setSelectedIndex(5);
+                break;
             case 6:
-            jComboBoxGun.setSelectedIndex(6);
-            break;
+                jComboBoxGun.setSelectedIndex(6);
+                break;
             case 7:
-            jComboBoxGun.setSelectedIndex(7);
-            break;
+                jComboBoxGun.setSelectedIndex(7);
+                break;
         }
     }//GEN-LAST:event_jComboBoxTarihItemStateChanged
 
@@ -453,19 +456,19 @@ public class Frame extends JFrame {
         // TODO add your handling code here:
         switch (jComboBoxDers.getSelectedIndex()) {
             case 0:
-            jComboBoxIsım.setSelectedIndex(0);
-            break;
+                jComboBoxIsım.setSelectedIndex(0);
+                break;
             case 1:
-            jComboBoxIsım.setSelectedIndex(1);
-            break;
+                jComboBoxIsım.setSelectedIndex(1);
+                break;
             case 2:
-            jComboBoxIsım.setSelectedIndex(1);
-            break;
+                jComboBoxIsım.setSelectedIndex(1);
+                break;
             case 3:
-            jComboBoxIsım.setSelectedIndex(2);
-            break;
+                jComboBoxIsım.setSelectedIndex(2);
+                break;
             case 4:
-            jComboBoxIsım.setSelectedIndex(3);
+                jComboBoxIsım.setSelectedIndex(3);
         }
     }//GEN-LAST:event_jComboBoxDersItemStateChanged
 
@@ -476,53 +479,57 @@ public class Frame extends JFrame {
         } else {
             switch (jComboBoxIsım.getSelectedIndex()) {
                 case 0:
-                if (Giris(o1)) {
-                    jLabelIslem.setText("başarılı");
-                    matS1.setSınavAdı(jTextFieldSinavAdi.getText());
-                    matS1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
-                    sınavTarihi(matS1);
-                } else {
-                    jLabelIslem.setText("Şifre yanlış");
-                }
-                break;
-                case 1:
-                if (Giris(o2)) {
-                    jLabelIslem.setText("başarılı");
-                    if (jComboBoxDers.getSelectedIndex() == 1) {
-                        fizik1S1.setSınavAdı(jTextFieldSinavAdi.getText());
-                        fizik1S1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
-                        sınavTarihi(fizik1S1);
-                    } else if (jComboBoxDers.getSelectedIndex() == 2) {
-                        fizik2S1.setSınavAdı(jTextFieldSinavAdi.getText());
-                        fizik2S1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
-                        sınavTarihi(fizik2S1);
-
+                    if (Giris(o1)) {
+                        jLabelIslem.setText("başarılı");
+                        matS1.setSınavAdı(jTextFieldSinavAdi.getText());
+                        matS1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
+                        sınavTarihi(matS1);
+                        mat1.sınavEkle(matS1);
+                    } else {
+                        jLabelIslem.setText("Şifre yanlış");
                     }
+                    break;
+                case 1:
+                    if (Giris(o2)) {
+                        jLabelIslem.setText("başarılı");
+                        if (jComboBoxDers.getSelectedIndex() == 1) {
+                            fizik1S1.setSınavAdı(jTextFieldSinavAdi.getText());
+                            fizik1S1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
+                            sınavTarihi(fizik1S1);
+                            fizik1.sınavEkle(fizik1S1);
+                        } else if (jComboBoxDers.getSelectedIndex() == 2) {
+                            fizik2S1.setSınavAdı(jTextFieldSinavAdi.getText());
+                            fizik2S1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
+                            sınavTarihi(fizik2S1);
+                            fizik2.sınavEkle(fizik2S1);
+                        }
 
-                } else {
-                    jLabelIslem.setText("Şifre yanlış");
-                }
-                break;
+                    } else {
+                        jLabelIslem.setText("Şifre yanlış");
+                    }
+                    break;
                 case 2:
-                if (Giris(o3)) {
-                    jLabelIslem.setText("başarılı");
-                    bpS1.setSınavAdı(jTextFieldSinavAdi.getText());
-                    bpS1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
-                    sınavTarihi(bpS1);
-                } else {
-                    jLabelIslem.setText("Şifre yanlış");
-                }
-                break;
+                    if (Giris(o3)) {
+                        jLabelIslem.setText("başarılı");
+                        bp1S1.setSınavAdı(jTextFieldSinavAdi.getText());
+                        bp1S1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
+                        sınavTarihi(bp1S1);
+                        bp1.sınavEkle(bp1S1);
+                    } else {
+                        jLabelIslem.setText("Şifre yanlış");
+                    }
+                    break;
                 case 3:
-                if (Giris(o4)) {
-                    jLabelIslem.setText("başarılı");
-                    ingS1.setSınavAdı(jTextFieldSinavAdi.getText());
-                    ingS1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
-                    sınavTarihi(ingS1);
-                } else {
-                    jLabelIslem.setText("Şifre yanlış");
-                }
-                break;
+                    if (Giris(o4)) {
+                        jLabelIslem.setText("başarılı");
+                        ingS1.setSınavAdı(jTextFieldSinavAdi.getText());
+                        ingS1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
+                        sınavTarihi(ingS1);
+                        ing.sınavEkle(ingS1);
+                    } else {
+                        jLabelIslem.setText("Şifre yanlış");
+                    }
+                    break;
             }
         }
     }//GEN-LAST:event_jButtonEkleActionPerformed
@@ -530,7 +537,8 @@ public class Frame extends JFrame {
     private void jButtonGeriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGeriActionPerformed
         // TODO add your handling code here:
         jFrame1.setVisible(false);
-        
+        jTextFieldSifre.setText("");
+        jTextFieldSifre.setText("");
         setVisible(true);
     }//GEN-LAST:event_jButtonGeriActionPerformed
 
@@ -538,19 +546,19 @@ public class Frame extends JFrame {
         // TODO add your handling code here:
         switch (jComboBoxIsım.getSelectedIndex()) {
             case 0:
-            jComboBoxIsım.setSelectedIndex(0);
-            break;
+                jComboBoxIsım.setSelectedIndex(0);
+                break;
             case 1:
-            jComboBoxIsım.setSelectedIndex(1);
-            break;
+                jComboBoxIsım.setSelectedIndex(1);
+                break;
             case 2:
-            jComboBoxIsım.setSelectedIndex(1);
-            break;
+                jComboBoxIsım.setSelectedIndex(1);
+                break;
             case 3:
-            jComboBoxIsım.setSelectedIndex(2);
-            break;
+                jComboBoxIsım.setSelectedIndex(2);
+                break;
             case 4:
-            jComboBoxIsım.setSelectedIndex(3);
+                jComboBoxIsım.setSelectedIndex(3);
         }
     }//GEN-LAST:event_jComboBoxIsım1ItemStateChanged
 
@@ -560,25 +568,92 @@ public class Frame extends JFrame {
 
     private void jButtonGeri1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGeri1ActionPerformed
         // TODO add your handling code here:
+        jTextFieldSifre1.setText("");
+        jTextFieldSifre1.setText("");
         jFrame2.setVisible(false);
         setVisible(true);
+
     }//GEN-LAST:event_jButtonGeri1ActionPerformed
 
     private void jButtonKontrolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKontrolActionPerformed
         // TODO add your handling code here:
+        boolean girisYapıldı = false;
+        switch (jComboBoxIsım1.getSelectedIndex()) {
+            case 0:
+                if (g1.GirisIslemi(jTextFieldSifre1.getText(), g1.tamAd())) {
+                    girisYapıldı = true;
+                }
+                break;
+            case 1:
+                if (g2.GirisIslemi(jTextFieldSifre1.getText(), g2.tamAd())) {
+                    girisYapıldı = true;
+                }
+            case 2:
+                if (g3.GirisIslemi(jTextFieldSifre1.getText(), g3.tamAd())) {
+                    girisYapıldı = true;
+                }
+                break;
+            case 3:
+                if (g4.GirisIslemi(jTextFieldSifre1.getText(), g4.tamAd())) {
+                    girisYapıldı = true;
+                }
+                break;
+        }
+        if (girisYapıldı) {
+            jLabelIslem1.setText("Başarılı.");
+            switch (jListDersler.getSelectedIndex()) {
+                case 0:
+                    if (!mat1.getSınavlar().isEmpty()) {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı " + matS1.getTarih() + " " + matS1.getSaat() + " tarihindedir.");
+                    } else {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı Yoktur.");
+                    }
+                    break;
+                case 1:
+                    if (!fizik1.getSınavlar().isEmpty()) {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı " + fizik1S1.getTarih() + " " + fizik1S1.getSaat() + " tarihindedir.");
+                    } else {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı Yoktur.");
+                    }
+                    break;
+                case 2:
+                    if (!fizik2.getSınavlar().isEmpty()) {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı " + fizik2S1.getTarih() + " " + fizik2S1.getSaat() + " tarihindedir.");
+                    } else {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı Yoktur.");
+                    }
+                    break;
+                case 3:
+                    if (!bp1.getSınavlar().isEmpty()) {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı " + bp1S1.getTarih() + " " + bp1S1.getSaat() + " tarihindedir.");
+                    } else {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı Yoktur.");
+                    }
+                    break;
+                case 4:
+                    if (!ing.getSınavlar().isEmpty()) {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı " + ingS1.getTarih() + " " + ingS1.getSaat() + " tarihindedir.");
+                    } else {
+                        jTextFieldSonuç.setText("Seçilen Dersin Sınavı Yoktur.");
+                    }
+            }
+        } else {
+            jLabelIslem1.setText("Şifre yanlış");
+        }
+
+
     }//GEN-LAST:event_jButtonKontrolActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   public static void main(String args[]) {
+    public static void main(String args[]) {
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
         //</editor-fold>
 
         /* Create and display the form */

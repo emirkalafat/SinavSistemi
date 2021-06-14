@@ -12,9 +12,10 @@ import java.util.ArrayList;
  * @author emirk
  */
 public class Ders {
+
     private String adı;
-    private int AKTS,not;
-    private ArrayList<Sınav> sınavlar;
+    private int AKTS, not;
+    private ArrayList<Sınav> sınavlar = new ArrayList<>();
     private Ogretmen dersOgretmeni;
 
     public Ders(String adı, int AKTS, Ogretmen ogretmen, Bolum bolüm) {
@@ -25,10 +26,10 @@ public class Ders {
         bolüm.DersEkle(this);
     }
 
-    public void sınavEkle(String ad,int soruSayısı){
-        
+    public void sınavEkle(Sınav sınav) {
+        sınavlar.add(sınav);
     }
-    
+
     public Ogretmen getDersOgretmeni() {
         return dersOgretmeni;
     }
@@ -44,7 +45,7 @@ public class Ders {
     public void setSınavlar(ArrayList<Sınav> sınavlar) {
         this.sınavlar = sınavlar;
     }
-    
+
     public String getAdı() {
         return adı;
     }
@@ -69,8 +70,4 @@ public class Ders {
         this.not = not;
     }
 
-  
-            
-            
-            
 }
