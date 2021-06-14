@@ -5,6 +5,9 @@
  */
 package bp2donemprojesi;
 
+import java.io.File;
+import java.io.PrintWriter;
+import java.util.Scanner;
 import javax.swing.JFrame;
 
 /**
@@ -42,6 +45,9 @@ public class Frame extends JFrame {
 
     public void sınavTarihi(Sınav sınav) {
         jLabelIslem.setText(EEM_Bolumu.sınavTarihiAyarla(sınav, jComboBoxGun.getSelectedIndex(), jComboBoxSaat.getSelectedIndex(), jComboBoxGun, jComboBoxSaat));
+    }
+    public String geriBildirim(Sınav sınav,Ders ders,Ogretmen ogretmen){
+        return ogretmen.tamAd()+" isimli öğretmen "+ders.getAdı()+" dersi için "+sınav.getSınavAdı()+" isimde "+sınav.getTarih()+" "+sınav.getSaat()+" tarihine sınav oluşturuldu!";
     }
 
     public Frame() {
@@ -89,12 +95,14 @@ public class Frame extends JFrame {
         jListDersler = new javax.swing.JList<>();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldSonuç = new javax.swing.JTextField();
+        jButtonYazdır = new javax.swing.JButton();
         sınavKS = new javax.swing.JLabel();
         jButtonOgrenci = new javax.swing.JButton();
         jButtonOgretmen = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        jFrame1.setTitle("Ogremten");
+        jFrame1.setTitle("Öğremten");
+        jFrame1.setResizable(false);
 
         jComboBoxTarih.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "14 Haziran 2021", "15 Haziran 2021", "16 Haziran 2021", "17 Haziran 2021", "18 Haziran 2021", "19 Haziran 2021", "20 Haziran 2021" }));
         jComboBoxTarih.addItemListener(new java.awt.event.ItemListener() {
@@ -142,7 +150,7 @@ public class Frame extends JFrame {
 
         jLabelIslem.setText("İşlem Bekleniyor...");
 
-        jComboBoxSaat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Belirtilmedi", "9:00 - 11:00", "10:00 - 12:00", "11:00 - 13:00", "12:00 - 14:00", "13:00 - 15:00", "14:00 - 16:00" }));
+        jComboBoxSaat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Belirtilmedi", "9:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00", "14:00 - 15:00" }));
 
         jButtonGeri.setText("Geri");
         jButtonGeri.addActionListener(new java.awt.event.ActionListener() {
@@ -237,6 +245,8 @@ public class Frame extends JFrame {
         );
 
         jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFrame2.setTitle("Öğrenci");
+        jFrame2.setResizable(false);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel4.setText("Giriş Yapan Öğrenci:");
@@ -287,6 +297,13 @@ public class Frame extends JFrame {
 
         jTextFieldSonuç.setEnabled(false);
 
+        jButtonYazdır.setText("Yazdır");
+        jButtonYazdır.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonYazdırActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
         jFrame2.getContentPane().setLayout(jFrame2Layout);
         jFrame2Layout.setHorizontalGroup(
@@ -305,7 +322,9 @@ public class Frame extends JFrame {
                     .addComponent(jButtonKontrol, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                     .addComponent(jTextFieldSonuç))
                 .addGap(18, 18, 18)
-                .addComponent(jLabelIslem1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonYazdır, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelIslem1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
             .addGroup(jFrame2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -325,35 +344,41 @@ public class Frame extends JFrame {
             jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(jComboBoxIsım1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonGeri1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldSifre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabelIslem1)
-                    .addComponent(jButtonKontrol))
-                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jFrame2Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonYazdır, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jFrame2Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jTextFieldSonuç, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jFrame2Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                            .addComponent(jComboBoxIsım1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonGeri1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldSifre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabelIslem1)
+                            .addComponent(jButtonKontrol))
+                        .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jFrame2Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jFrame2Layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(jTextFieldSonuç, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jFrame2Layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(31, 31, 31))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Giris");
+        setResizable(false);
 
         sınavKS.setFont(new java.awt.Font("Futura Md BT", 0, 36)); // NOI18N
         sınavKS.setText("Üniversite Sınav Sistemi");
@@ -485,6 +510,7 @@ public class Frame extends JFrame {
                         matS1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
                         sınavTarihi(matS1);
                         mat1.sınavEkle(matS1);
+                        System.out.println(geriBildirim(matS1, mat1, o1));
                     } else {
                         jLabelIslem.setText("Şifre yanlış");
                     }
@@ -497,11 +523,13 @@ public class Frame extends JFrame {
                             fizik1S1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
                             sınavTarihi(fizik1S1);
                             fizik1.sınavEkle(fizik1S1);
+                            System.out.println(geriBildirim(fizik1S1, fizik1, o2));
                         } else if (jComboBoxDers.getSelectedIndex() == 2) {
                             fizik2S1.setSınavAdı(jTextFieldSinavAdi.getText());
                             fizik2S1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
                             sınavTarihi(fizik2S1);
                             fizik2.sınavEkle(fizik2S1);
+                            System.out.println(geriBildirim(fizik2S1, fizik2, o2));
                         }
 
                     } else {
@@ -515,6 +543,7 @@ public class Frame extends JFrame {
                         bp1S1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
                         sınavTarihi(bp1S1);
                         bp1.sınavEkle(bp1S1);
+                        System.out.println(geriBildirim(bp1S1, bp1, o3));
                     } else {
                         jLabelIslem.setText("Şifre yanlış");
                     }
@@ -526,12 +555,14 @@ public class Frame extends JFrame {
                         ingS1.setSoruSayısı(Integer.parseInt(jTextFieldSoruSayisi.getText()));
                         sınavTarihi(ingS1);
                         ing.sınavEkle(ingS1);
+                        System.out.println(geriBildirim(ingS1, ing, o4));
                     } else {
                         jLabelIslem.setText("Şifre yanlış");
                     }
                     break;
             }
         }
+        
     }//GEN-LAST:event_jButtonEkleActionPerformed
 
     private void jButtonGeriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGeriActionPerformed
@@ -539,6 +570,9 @@ public class Frame extends JFrame {
         jFrame1.setVisible(false);
         jTextFieldSifre.setText("");
         jTextFieldSifre.setText("");
+        jTextFieldSinavAdi.setText("");
+        jTextFieldSoruSayisi.setText("");
+        jLabelIslem.setText("İşlem Bekleniyor...");
         setVisible(true);
     }//GEN-LAST:event_jButtonGeriActionPerformed
 
@@ -644,6 +678,37 @@ public class Frame extends JFrame {
 
     }//GEN-LAST:event_jButtonKontrolActionPerformed
 
+    private void jButtonYazdırActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonYazdırActionPerformed
+        // TODO add your handling code here:
+        File kayıt = new File(System.getProperty("user.home"),"Sınav Tarihleri.txt");
+        StringBuilder sb = new StringBuilder();
+        try{
+            PrintWriter print = new PrintWriter(kayıt);
+            if(!mat1.getSınavlar().isEmpty()){
+                sb.append(mat1.getAdı()+" : "+matS1.getSınavAdı()+" -> "+matS1.getTarih() + " " + matS1.getSaat()+"\n");
+            }
+            if(!fizik1.getSınavlar().isEmpty()){
+                sb.append(fizik1.getAdı()+" : "+fizik1S1.getSınavAdı()+" -> "+fizik1S1.getTarih() + " " + fizik1S1.getSaat()+"\n");
+            }
+            if(!fizik2.getSınavlar().isEmpty()){
+                sb.append(fizik2.getAdı()+" : "+fizik2S1.getSınavAdı()+" -> "+fizik2S1.getTarih() + " " + fizik2S1.getSaat()+"\n");
+            }
+            if(!bp1.getSınavlar().isEmpty()){
+                sb.append(bp1.getAdı()+" : "+bp1S1.getSınavAdı()+" -> "+bp1S1.getTarih() + " " + bp1S1.getSaat()+"\n");
+            }
+            if(!ing.getSınavlar().isEmpty()){
+                sb.append(ing.getAdı()+" : "+ingS1.getSınavAdı()+" -> "+ingS1.getTarih() + " " + ingS1.getSaat());
+            }
+            System.out.println(sb);
+            jLabelIslem1.setText("Yazdırma işlemi başarılı.");
+            print.print(sb);
+            print.close();
+        }catch(Exception e){
+            jLabelIslem1.setText("Yazdırma işlemi hatalı!");
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButtonYazdırActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -674,6 +739,7 @@ public class Frame extends JFrame {
     public javax.swing.JButton jButtonKontrol;
     public javax.swing.JButton jButtonOgrenci;
     public javax.swing.JButton jButtonOgretmen;
+    public javax.swing.JButton jButtonYazdır;
     public javax.swing.JComboBox<String> jComboBoxDers;
     public javax.swing.JComboBox<String> jComboBoxGun;
     public javax.swing.JComboBox<String> jComboBoxIsım;
