@@ -680,7 +680,7 @@ public class Frame extends JFrame {
 
     private void jButtonYazdırActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonYazdırActionPerformed
         // TODO add your handling code here:
-       // if (g1.GirisIslemi(jTextFieldSifre1.getText(), jComboBoxIsım1.getItemAt(jComboBoxIsım1.getSelectedIndex()).))
+        if (g1.GirisIslemi(jTextFieldSifre1.getText(), jComboBoxIsım1.getItemAt(jComboBoxIsım1.getSelectedIndex()))){
         File kayıt = new File(System.getProperty("user.home"),"Sınav Tarihleri.txt");
         StringBuilder sb = new StringBuilder();
         try{
@@ -707,7 +707,10 @@ public class Frame extends JFrame {
         }catch(Exception e){
             jLabelIslem1.setText("Yazdırma işlemi hatalı!");
             System.out.println(e);
-        }
+        }     
+        }else
+            jLabelIslem1.setText("Şifreniz Yanlış.");
+        
     }//GEN-LAST:event_jButtonYazdırActionPerformed
 
     /**
